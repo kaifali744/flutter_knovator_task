@@ -8,14 +8,14 @@ class PostRepository {
 
   PostRepository({required this.apiClient, required this.hiveService});
 
-  /// Return cached posts (if any). Caller may then trigger fetchAndCache.
+  // Returns cached posts (if any). Caller may then trigger fetchAndCache.
   Future<List<PostModel>> getCachedPosts() async {
     final cached = await hiveService.getPosts();
     final readIds = hiveService.getReadIds();
     return cached.map((p) => p.copyWith(isRead: readIds.contains(p.id))).toList();
   }
 
-  /// Fetch fresh posts from API and cache them. Returns fresh list.
+  // Fetch fresh posts from API and cache them. Returns fresh list.
   Future<List<PostModel>> fetchAndCachePosts() async {
     final remote = await apiClient.fetchPosts();
     // apply read flags (if any)

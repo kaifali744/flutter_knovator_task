@@ -6,14 +6,17 @@ import '../widgets/post_item.dart';
 import 'post_detail_screen.dart';
 
 class PostListScreen extends StatelessWidget {
-  const PostListScreen({Key? key}) : super(key: key);
+  const PostListScreen({super.key});
 
   void _openDetail(BuildContext context, PostModel post) {
     // mark read then navigate
     context.read<PostBloc>().add(MarkPostReadEvent(post.id));
-    Navigator.of(context).push(MaterialPageRoute(
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent, // so blur shows
       builder: (_) => PostDetailScreen(post: post),
-    ));
+    );
   }
 
   @override
@@ -21,13 +24,15 @@ class PostListScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Posts'),
+        centerTitle: true,
+        elevation: 0,
         actions: [
           IconButton(
-            icon: const Icon(Icons.refresh),
+            icon: const Icon(Icons.refresh, color: Colors.white),
             onPressed: () {
               context.read<PostBloc>().add(RefreshPostsEvent());
             },
-          )
+          ),
         ],
       ),
       body: SafeArea(
@@ -43,9 +48,10 @@ class PostListScreen extends StatelessWidget {
                     Text(state.message, textAlign: TextAlign.center),
                     const SizedBox(height: 12),
                     ElevatedButton(
-                      onPressed: () => context.read<PostBloc>().add(LoadPostsEvent()),
+                      onPressed: () =>
+                          context.read<PostBloc>().add(LoadPostsEvent()),
                       child: const Text('Retry'),
-                    )
+                    ),
                   ],
                 ),
               );

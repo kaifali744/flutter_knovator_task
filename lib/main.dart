@@ -12,18 +12,23 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
   await Hive.openBox('postsBox'); // stores list of post JSONs under 'posts'
-  await Hive.openBox('readBox');  // stores set/list of read post ids under 'readIds'
+  await Hive.openBox(
+    'readBox',
+  ); // stores set/list of read post ids under 'readIds'
 
   final apiClient = ApiClient();
   final hiveService = HiveService();
-  final repository = PostRepository(apiClient: apiClient, hiveService: hiveService);
+  final repository = PostRepository(
+    apiClient: apiClient,
+    hiveService: hiveService,
+  );
 
   runApp(MyApp(repository: repository));
 }
 
 class MyApp extends StatelessWidget {
   final PostRepository repository;
-  const MyApp({Key? key, required this.repository}) : super(key: key);
+  const MyApp({super.key, required this.repository});
 
   @override
   Widget build(BuildContext context) {
@@ -32,9 +37,21 @@ class MyApp extends StatelessWidget {
       child: BlocProvider(
         create: (_) => PostBloc(repository: repository)..add(LoadPostsEvent()),
         child: MaterialApp(
+          debugShowCheckedModeBanner: false,
           title: 'Knovator Posts',
           theme: ThemeData(
-            primarySwatch: Colors.blue,
+            fontFamily: 'Poppins',
+            colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFF33A1E0)),
+            appBarTheme: AppBarTheme(
+              titleTextStyle: TextStyle(
+                color: Colors.white,
+                fontFamily: 'Tasa',
+                fontSize: 22,
+              ),
+              centerTitle: true,
+              color: Color(0xFF154D71),
+            ),
+            // fontFamily:
           ),
           home: const PostListScreen(),
         ),

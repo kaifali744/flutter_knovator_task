@@ -3,6 +3,10 @@
 A Flutter application developed for the **Knovator assignment**.  
 The app fetches posts from a public API, supports local caching, and demonstrates proper architecture using **BLoC**, **Hive**, and **http**.
 
+Apk download link : [here](https://drive.google.com/file/d/1reKnvSFiqgq-axEMJKHt67J9KfUTDpIP/view?usp=sharing)
+
+App demo video : [Youtube link](https://youtube.com/shorts/OpUm50JtXPA)
+
 ---
 
 ## ✨ Features
@@ -25,6 +29,30 @@ The app fetches posts from a public API, supports local caching, and demonstrate
 | Networking | [http](https://pub.dev/packages/http) |
 | Local Storage | [hive](https://pub.dev/packages/hive), [hive_flutter](https://pub.dev/packages/hive_flutter) |
 | Utility | [path_provider](https://pub.dev/packages/path_provider), [equatable](https://pub.dev/packages/equatable) |
+
+---
+
+## Screenshots
+
+- **Home Screen**:
+
+  ![Home Screen](./screenshots/posts1.jpg)
+
+- **Home Screen 2**:
+
+  ![Home Screen 2](./screenshots/posts2.jpg)
+
+- **Post Screen**:
+
+  ![Post Screen](./screenshots/post.jpg)
+
+- **Error Screen**:
+
+  ![Error Screen](./screenshots/error.jpg)
+
+- **App Demo**:
+
+  ![Error Screen](./screenshots/app_video.mp4)
 
 ---
 
@@ -114,5 +142,9 @@ Background synchronization errors are handled silently and do not interrupt the 
 👨## ‍💻 Developer
 **Mohammad Kaif Ali**
 
-
 Flutter Developer
+
+## Contact
+- **LinkedIn**: [My LinkedIn Profile](https://www.linkedin.com/in/mohammad-kaif-ali-3a19671a0)
+- **Twitter**: [My Twitter/X Profile](https://x.com/kaifali744)
+- **Email**: [Email me](mailto:kaifali744@gmail.com)
