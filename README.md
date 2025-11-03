@@ -52,7 +52,7 @@ App demo video : [Youtube link](https://youtube.com/shorts/OpUm50JtXPA)
 
 - **App Demo**:
 
-  ![Error Screen](./screenshots/app_video.mp4)
+  ![App Demo Video](./screenshots/app_video.mp4)
 
 ---
 
@@ -134,10 +134,10 @@ Displays meaningful error messages with a "Retry" button if the API call fails.
 Background synchronization errors are handled silently and do not interrupt the user experience.
 
 ## 📝 Submission Checklist
-1. [ ] Working APK (public access)
-2. [ ] Demo video (public link)
-3. [ ] GitHub or GitLab repo with well-documented code
-4. [ ] This README file
+1. [x] Working APK (public access)
+2. [x] Demo video (public link)
+3. [x] GitHub or GitLab repo with well-documented code
+4. [x] This README file
 
 👨## ‍💻 Developer
 **Mohammad Kaif Ali**
