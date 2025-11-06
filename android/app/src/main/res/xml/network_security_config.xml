@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!-- Allow secure HTTPS access -->
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">jsonplaceholder.typicode.com</domain>
+    </domain-config>
+
+    <!-- Fallback to allow all connections (safe for test apps only) -->
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" />
+            <certificates src="user" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>

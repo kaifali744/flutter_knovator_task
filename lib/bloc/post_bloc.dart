@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 import '../../data/models/post_model.dart';
@@ -17,6 +19,13 @@ class PostBloc extends Bloc<PostEvent, PostState> {
 
   Future<void> _onLoad(LoadPostsEvent event, Emitter<PostState> emit) async {
     emit(PostLoading());
+    try {
+      final result = await InternetAddress.lookup("google.com");
+      print(result);
+    } catch (e) {
+      print("NO INTERNET");
+    }
+
     try {
       final cached = await repository.getCachedPosts();
       if (cached.isNotEmpty) {

@@ -19,7 +19,14 @@ class ApiClient {
 
   Future<PostModel> fetchPostById(int id) async {
     final url = Uri.parse('$base/posts/$id');
-    final resp = await http.get(url).timeout(const Duration(seconds: 15));
+    final resp = await http.get(
+      url,
+      headers: {
+        "Accept": "application/json",
+        "User-Agent": "Mozilla/5.0 (Mobile; Flutter App)", // important
+      },
+    ).timeout(const Duration(seconds: 15));
+
     if (resp.statusCode == 200) {
       final data = jsonDecode(resp.body) as Map<String, dynamic>;
       return PostModel.fromJson(data);
